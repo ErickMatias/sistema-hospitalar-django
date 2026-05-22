@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow p-4">
+
+    <h1 class="mb-4 text-danger">
+        Deletar Paciente
+    </h1>
+
+    <p>
+        Tem certeza que deseja deletar:
+        <strong>
+
+            {{ object.nome }}
+
+        </strong>
+        ?
+    </p>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <button class="btn btn-danger">
+            Confirmar Exclusão
+        </button>
+    </form>
+</div>
+
+{% endblock %}

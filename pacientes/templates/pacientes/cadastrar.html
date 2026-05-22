@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+        <div class="card shadow border-0">
+
+            <div class="card-body p-5">
+
+                <h2 class="mb-4 text-center">
+
+                    Cadastro de Paciente
+
+                </h2>
+
+                <form method="POST">
+                    {% if form.non_field_errors %}
+
+                        <div class="alert alert-danger">
+
+                            {{ form.non_field_errors }}
+
+                        </div>
+
+                    {% endif %}
+
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+
+                            Nome
+
+                        </label>
+
+                        {{ form.nome }}
+
+                        <div class="text-danger">
+
+                            {{ form.nome.errors }}
+
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+
+                                <label class="form-label">
+
+                                    CPF
+
+                                </label>
+
+                                {{ form.cpf }}
+
+                                <div class="text-danger">
+
+                                    {{ form.cpf.errors }}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="mb-3">
+
+                                <label class="form-label">
+
+                                    Telefone
+
+                                </label>
+
+                                {{ form.telefone }}
+
+                                <div class="text-danger">
+
+                                    {{ form.telefone.errors }}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+
+                            Data de nascimento
+
+                        </label>
+
+                        {{ form.data_nascimento }}
+
+                        <div class="text-danger">
+
+                            {{ form.data_nascimento.errors }}
+
+                        </div>
+
+                    </div>
+
+                    <div class="d-grid">
+
+                        <button class="btn btn-primary btn-lg">
+
+                            Salvar Paciente
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

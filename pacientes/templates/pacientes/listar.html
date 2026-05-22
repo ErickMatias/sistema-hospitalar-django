@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow p-4">
+    <h1 class="mb-4">
+        Pacientes
+    </h1>
+    
+    <a
+    href="{% url 'cadastrar_paciente' %}"
+    class="btn btn-primary mb-3"
+    >
+    Novo Paciente
+    </a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+                <th>Deletar</th>
+                <th>Detalhes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paciente in pacientes %}
+                <tr>
+                    <td>
+                        {{ paciente.nome }}
+                    </td>
+                    <td>
+                        {{ paciente.cpf }}
+                    </td>
+                    <td>
+                        {{ paciente.telefone }}
+                    </td>
+                    <td>
+                        <a
+                            href="{% url 'editar_paciente' paciente.pk %}"
+                            class="btn btn-warning btn-sm"
+                        >
+                            Editar
+                        </a>
+                    </td>
+                    <td>
+                        <a
+                            href="{% url 'deletar_paciente' paciente.pk %}"
+                            class="btn btn-danger btn-sm"
+                        >
+                            Deletar
+                        </a>
+                    </td>
+                    <td>
+                        <a
+                            href="{% url 'detalhes_paciente' paciente.pk %}"
+                            class="btn btn-info btn-sm"
+                        >
+
+                            Detalhes
+
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

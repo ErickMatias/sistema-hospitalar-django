@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <h2 class="mb-4">
+            Cadastro de Prontuário
+        </h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {{ form.non_field_errors }}
+
+            <div class="mb-3">
+                <label class="form-label">Consulta</label>
+                {{ form.consulta }}
+                <div class="text-danger">{{ form.consulta.errors }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Sintomas</label>
+                {{ form.sintomas }}
+                <div class="text-danger">{{ form.sintomas.errors }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Diagnóstico</label>
+                {{ form.diagnostico }}
+                <div class="text-danger">{{ form.diagnostico.errors }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Prescrição</label>
+                {{ form.prescricao }}
+                <div class="text-danger">{{ form.prescricao.errors }}</div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Observações</label>
+                {{ form.observacoes }}
+                <div class="text-danger">{{ form.observacoes.errors }}</div>
+            </div>
+
+            <button class="btn btn-success">
+                Salvar
+            </button>
+
+            <a
+                href="{% url 'listar_prontuarios' %}"
+                class="btn btn-secondary"
+            >
+                Voltar
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

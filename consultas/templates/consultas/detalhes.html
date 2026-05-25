@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-dark text-white">
+
+            <h3>Detalhes da Consulta</h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <p>
+                <strong>Paciente:</strong>
+                {{ consulta.paciente }}
+            </p>
+
+            <p>
+                <strong>Médico:</strong>
+                {{ consulta.medico }}
+            </p>
+
+            <p>
+                <strong>Data:</strong>
+                {{ consulta.data_consulta }}
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                {{ consulta.status }}
+            </p>
+
+            <p>
+                <strong>Observações:</strong>
+                {{ consulta.observacoes }}
+            </p>
+
+            <a
+                href="{% url 'listar_consultas' %}"
+                class="btn btn-secondary"
+            >
+                Voltar
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

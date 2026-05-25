@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>
+        Prontuários
+    </h2>
+
+    <a
+        href="{% url 'cadastrar_prontuario' %}"
+        class="btn btn-primary"
+    >
+        Novo Prontuário
+    </a>
+
+</div>
+
+<table class="table table-striped table-hover">
+
+    <thead class="table-dark">
+
+        <tr>
+            <th>Paciente</th>
+            <th>Médico</th>
+            <th>Data da Consulta</th>
+            <th>Diagnóstico</th>
+            <th>Ações</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        {% for prontuario in prontuarios %}
+
+            <tr>
+
+                <td>
+                    {{ prontuario.consulta.paciente }}
+                </td>
+
+                <td>
+                    {{ prontuario.consulta.medico }}
+                </td>
+
+                <td>
+                    {{ prontuario.consulta.data_consulta }}
+                </td>
+
+                <td>
+                    {{ prontuario.diagnostico|truncatechars:40 }}
+                </td>
+
+                <td>
+
+                    <a
+                        href="{% url 'editar_prontuario' prontuario.pk %}"
+                        class="btn btn-warning btn-sm"
+                    >
+                        Editar
+                    </a>
+
+                    <a
+                        href="{% url 'deletar_prontuario' prontuario.pk %}"
+                        class="btn btn-danger btn-sm"
+                    >
+                        Excluir
+                    </a>
+
+                </td>
+
+            </tr>
+
+        {% empty %}
+
+            <tr>
+                <td colspan="5" class="text-center">
+                    Nenhum prontuário cadastrado.
+                </td>
+            </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock %}

@@ -67,15 +67,13 @@ class PacienteForm(forms.ModelForm):
         return telefone
         
     def clean_cpf(self):
-        cpf = self.cleaned_data.get('cpf')
+        cpf = self.cleaned_data['cpf']
 
-        paciente = Paciente.objects.filter(cpf = cpf).first().exclude(pk=self.instance.pk).first()
+        paciente = Paciente.objects.filter(cpf=cpf).exclude(pk=self.instance.pk).first()
 
         if paciente:
-            raise forms.ValidationError(
-                'Já existe um paciente com esse cpf'
-            )
-        
+            raise forms.ValidationError('CPF já cadastrado')
+
         return cpf
     
     def clean(self):

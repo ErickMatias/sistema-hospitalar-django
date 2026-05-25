@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    Dashboard
+</h1>
+
+<div class="row g-4">
+
+    <div class="col-md-3">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h5 class="card-title text-primary">
+                    Pacientes
+                </h5>
+
+                <h2>
+                    {{ total_pacientes }}
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h5 class="card-title text-success">
+                    Consultas
+                </h5>
+
+                <h2>
+                    {{ total_consultas }}
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h5 class="card-title text-warning">
+                    Agendadas
+                </h5>
+
+                <h2>
+                    {{ consultas_agendadas }}
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h5 class="card-title text-danger">
+                    Prontuários
+                </h5>
+
+                <h2>
+                    {{ total_prontuarios }}
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mt-4">
+
+    <div class="col-md-6">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    Médicos ativos
+                </h5>
+
+                <h3>
+                    {{ medicos_ativos }}
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <h2 class="mb-4">
+
+            Cadastro de Funcionário
+
+        </h2>
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Nome
+
+                </label>
+
+                {{ form.nome }}
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    CPF
+
+                </label>
+
+                {{ form.cpf }}
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Cargo
+
+                </label>
+
+                {{ form.cargo }}
+
+            </div>
+
+            <div class="mb-3">
+
+                <label class="form-label">
+
+                    Especialidade
+
+                </label>
+
+                {{ form.especialidade }}
+
+            </div>
+
+            <div class="form-check mb-3">
+
+                {{ form.ativo }}
+
+                <label class="form-check-label">
+
+                    Funcionário ativo
+
+                </label>
+
+            </div>
+
+            <button class="btn btn-success">
+
+                Salvar
+
+            </button>
+
+            <a
+                href="{% url 'listar_funcionarios' %}"
+                class="btn btn-secondary"
+            >
+
+                Voltar
+
+            </a>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

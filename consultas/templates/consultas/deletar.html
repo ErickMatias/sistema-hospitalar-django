@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow border-danger">
+
+        <div class="card-header bg-danger text-white">
+            <h3>Excluir Consulta</h3>
+        </div>
+
+        <div class="card-body">
+
+            <p>
+                Tem certeza que deseja excluir a consulta de:
+            </p>
+
+            <h5>
+                {{ consulta.paciente }}
+            </h5>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <button type="submit" class="btn btn-danger">
+                    Confirmar Exclusão
+                </button>
+
+                <a
+                    href="{% url 'listar_consultas' %}"
+                    class="btn btn-secondary"
+                >
+                    Cancelar
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
